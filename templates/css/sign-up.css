@@ -1,0 +1,25 @@
+.sign-up-container{
+    display: flex;
+    flex-direction: column;
+    height: 77vh;
+    width: 30%;
+    margin: 1% 2% 1% 33%;
+}
+.sign-up-container form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+form label{
+   margin-left: 3%;
+   line-height: 217%;
+}
+form input{
+    width: 74%;
+    margin-left: 3%;
+}
+form button{
+    width: 78%;
+margin: 4% 0%;
+}

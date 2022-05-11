@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Slab:wght@800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Slab:wght@800;900&family=Shippori+Antique+B1&display=swap');
+.bar{
+    display: none;
+}
+.deliver{
+    display: none;
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+}
+.header{
+    width: 100%;
+    height: 9vh;
+    background-color: #131921;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  
+
+}
+.india{
+    width: 5%;
+}
+.indian
+{
+    margin: 0;
+    width: 60%;
+}
+.indian img{
+    width: 118%;
+}
+#dropdownMenuButton2{
+    color: white;
+}
+.nav-1{
+    height: 8vh;
+    margin-right: 1%;
+    margin-left: 1%;
+    border: 0.5px;
+}
+.nav-1:hover{
+    border: 1px solid white;
+}
+.nav-1 a{
+    text-decoration: none;
+    color: white;
+}
+.nav-1 a strong{
+    font-size: 168%;
+    font-family: 'Poppins', sans-serif;
+}
+.nav-2{
+    height: 8vh;
+    margin-right: 2%;
+}
+.nav-2 a{
+    text-decoration: none;
+    color: white;
+}
+.nav-2 a h5{
+    font-size: 72%;
+    margin: 6% 0 0 11%;
+}
+.nav-2 a strong{
+    font-size: 74%;
+}
+.nav-3{
+    display: flex;
+    align-items: center;
+    width: 46%;
+
+}
+.dropdown{
+    height: 42px;
+}
+.nav-3 form{
+    height: 6vh;
+    width: 86%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.4%;
+}
+
+.nav-3 form input{
+    height: 6vh;
+    margin-bottom: 0.4%;
+    border: 0px solid;
+    width: 100%;
+}
+.nav-3 form button{
+    width: 12%;
+   
+    background-color: #febd69;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10% 10% 0%;
+    border: 0px solid;
+}
+.nav-3 form button i{
+    font-size: 130%;
+}
+#dropdownMenuButton1{
+    background: #f3f3f3;
+    color: black;
+    border: 0px;
+    border-radius: 0px;
+    height: 94%;
+    border-radius: 10% 0 0 10%;
+    width: 99%;
+}
+.nav-4{
+    height: 8vh;
+    margin-right: 2%;
+}
+.nav-4 a{
+    text-decoration: none;
+    color: white;
+}
+.nav-4 a h5{
+    font-size: 72%;
+    margin: 6% 0 0 11%;
+}
+.nav-4 a strong{
+    font-size: 85%;
+}
+.nav-4 a strong i{
+    color: thistle;
+}
+.nav-5{
+    height: 8vh;
+    margin-right: 2%;
+    margin-right: 2%;
+}
+.nav-5 a{
+    text-decoration: none;
+    color: white;
+}
+.nav-5 a h5{
+    font-size: 72%;
+    margin: 6% 0 0 11%;
+}
+.nav-5 a strong{
+    font-size: 85%;
+}
+.nav-6{
+    height: 9vh;
+    margin-right: 2%;
+    position: relative;
+    width: 5%;
+}
+.nav-6 a{
+    text-decoration: none;
+    color: white;
+}
+.nav-6 a h5{
+    position: absolute;
+    top:0%;
+    left: 8%;
+    color: #fca32f ;
+    font-size: 112%;
+    margin: 6% 0 0 11%;
+}
+.nav-6 a strong{
+    position: absolute;
+    bottom: 25%;
+    font-size: 85%;
+    right: 0%;
+}
+.nav-6 a i{
+    position: absolute;
+    bottom: 25%;
+    font-size: 147%;
+}
+/* -----------------------------header-2--------------------------------------------------- */
+.header-2{
+    display: flex;
+    align-items: center;
+    background-color: #232f3e;
+    width: 100%;
+    height: 6vh;
+    padding: 0 2% 0 2%;
+}
+.item-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1% 0 0;
+    width: 7%;
+    height: 5vh;
+}
+.item-1:hover{
+    border: 1px solid white;
+}
+.item-1 a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.item-1 a h5{
+    color: white;
+    font-size:85%;
+}
+.item-1 h5{
+    color: white;
+font-size: 98%;
+padding-top: 4%;
+cursor: pointer;
+}
+
+
+.download{
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    width: 35%;
+    padding-left: 8%;
+
+}
+.download a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.download a img{
+    height: 5vh;
+}
+
+
+.sidebar{
+    display: block;
+    z-index: 1;
+    background-color: white;
+    position: fixed;
+    top: 0%;
+    height: 100vh;
+    width:0%;
+    transition: width 0.5s;
+    overflow: hidden;
+}
+.user{
+    display: block;
+    display: flex;
+    margin: 3%;
+    align-items: center;
+}
+.user img{
+    display: block;
+    width: 20%;
+margin-right: 3%;
+}
+.user h1{
+    font-size: 157%;
+}
+.sidebar ul{
+    display: flex;
+    flex-direction: column;
+    line-height: 4rem;
+    list-style: none;
+}
+.sidebar ul li{
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar i{
+    font-size: 159%;
+top: 0;
+position: absolute;
+left: 91%;
+}
+.sidebar ul li a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+/* ----------------------------------------Selected_product.css---------------------------- */
+.selected_bar{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.selected_img{
+    width: 43%;
+    height: 50vh;
+    display: flex;
+    margin-top: 8%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6%;
+}
+.selected_desc{
+    width: 100%;
+    height: 100vh;
+}
+.selected_img img{
+    width: 40%;
+    height: 100%;
+}
+.selected_desc h1{
+    padding-top: 7%;
+    font-weight: bolder;
+}
+.h5{
+  
+    font-size: 93%;
+}
+.selected_desc p{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    margin-top: 2%;
+    margin-bottom: 0%;
+}
+.about-item{
+    padding-top: 2%;
+width: 92%;
+height: 36%;
+}
+.about-item h5{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 2%;
+    margin-bottom: 0%;
+}
+.product-button{
+    height: 14vh;
+}
+.buy-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 2%;
+}
+.cart-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88%;
+}
+.buy-button a button{
+    width: 270%;
+}
+.btn{
+    width: 130%;
+}
+/* -----------------------------------Footer------------------------------------------ */
+.footer{
+    background-color: #232F3E;
+    height: 410px;
+    margin-top: 12%;
+}
+.footer1{
+    padding-top: 5%;
+    padding-left: 18%;
+    display: flex;
+}
+.footer2{
+    padding-right: 7%;
+    padding-left: 7%;
+}
+.footer3,.footer4{
+    padding-right: 7%;
+}
+.r1 ul{
+list-style: none;
+padding: 0;
+}
+.r2 ul{
+list-style: none;
+padding: 0;
+}
+.r3 ul{
+list-style: none;
+padding: 0;
+}
+.r4 ul{
+list-style: none;
+padding: 0;
+}
+
+.r1 ul li a{
+color: white;
+text-decoration: none;
+line-height: 185%;
+font-weight: lighter;
+font-size: 12px;
+}
+.r2 ul li a{
+color: white;
+text-decoration: none;
+line-height: 185%;
+font-weight: lighter;
+font-size: 12px;
+}
+.r3 ul li a{
+color: white;
+text-decoration: none;
+line-height: 185%;
+font-weight: lighter;
+font-size: 12px;
+}
+.r4 ul li a{
+color: white;
+text-decoration: none;
+line-height: 185%;
+font-weight: lighter;
+font-size: 12px;
+}
+
+.r1,.r2,.r3,.r4 b{
+color: white;
+line-height: 180%;
+}
+.r1 ul li a:hover{
+    text-decoration: underline;
+}
+.r2 ul li a:hover{
+    text-decoration: underline;
+}
+.r3 ul li a:hover{
+    text-decoration: underline;
+}
+.r4 ul li a:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width:700px) {
+    .body{
+        height: 200%;
+    }
+    .nav-2,.nav-4,.nav-5,.item-1,.download{
+        display: none;
+    }
+    .deliver{
+        display: block;
+    }
+    .bar,.header-3{
+        display: block;
+    }
+    .header{
+        width: 100%;
+        height: 12vh;
+        background-color: #131921;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+    }
+    .bar{
+        position: absolute;
+        top: 8%;
+        left: 1%;
+        margin: 0 1% 0% 0%;
+    }
+    .bar span i{
+        color: white;
+        font-size: 146%;
+    }
+    .nav-1{
+        position: absolute;
+        height: 5vh;
+        top: -8%;
+        top: -3%;
+        left: 9%;
+    }
+    .nav-1 a strong{
+        font-size: 135%;
+    }
+    .nav-1 a span{
+        font-size: 99%;
+    }
+    .nav-6 strong{
+        display: none;
+    }
+    .nav-6{
+        height: 5vh;
+        width: 9%;
+        position: absolute;
+        right: 3%;
+        top: 3%;
+        left: 79%;
+    }
+    .nav-6 a h5{
+        position: absolute;
+        font-size: 86%;
+        left: 84%;
+    }
+    .dropdown{
+        display: none;
+    }
+    .nav-3{
+        width: 100%;
+        position: relative;
+        height: 4.5vh;
+        margin: 7% 1% 1% 1%;
+    }
+    .nav-3 form{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 4.5vh;
+    }
+    .nav-3 form input{
+        height: 4.5vh;
+        width: 100%;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+    .nav-3 form button{
+        height: 4.5vh;
+    }
+    .deliver{
+        margin-left: 2%;
+        display: flex;
+    }
+    .deliver a{
+        text-decoration: none;
+        color: white;
+        font-size: 75%;
+    }
+
+}

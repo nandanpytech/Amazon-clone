@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
+    <link rel="stylesheet" href="/templates/css/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Search</title>
+    <style>
+      .search-1{
+        height:209%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="bar">
+        <span><i class="fas fa-bars"></i></span>
+      </div>
+      <div class="nav-1">
+        <a href=""> <strong>amazon</strong> <span>.in</span> </a>
+      </div>
+      <div class="nav-2">
+        <a href="/address/">
+          
+         
+          {%for i in default_address%}
+          <h5>Hello, {{i.name}}</h5>
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>{{i.village}}- {{i.pin}}</strong>
+          {%empty%}
+          <h5>Hello, Welcome</h5>
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Select Your address</strong>
+         
+          {%endfor%}
+        </a>
+      </div>
+      <div class="nav-3">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            All
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+        <form action="/search-hole/" method="get"> {% csrf_token%}
+          <input type="text" name="search" id="" required />
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="india">
+        <div class="dropdown indian">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            style="background-color: #131921"
+          >
+            <img
+              src="https://cdn.dribbble.com/users/3583567/screenshots/6494624/india-flag-01_2x.png"
+              alt=""
+            />
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="nandan" class="nav-4">
+        <a href="">
+        {% if user.is_authenticated%}
+          <h5 style="margin: 6% 0 0 1%;">Welcome</h5>
+          <strong id="user">{{user.username}}</strong>
+        {% else %}
+        <h5>Hello,sign in</h5>
+        <strong>Account & List <i class="fas fa-caret-down"></i></strong>
+        {%endif%}
+        </a>
+      </div>
+      <div class="nav-5">
+        <a href="">
+          <h5>Return</h5>
+          <strong>& Orders</strong>
+        </a>
+      </div>
+      <div class="nav-6">
+        <a href="">
+          <h5>0</h5>
+          <i class="fas fa-shopping-cart"></i>
+          <strong>Cart</strong>
+        </a>
+      </div>
+    </div>
+    <div class="header-2">
+      <div class="item-1">
+        <a href="">
+          <h5>All</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Mobiles</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Grocery</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Electronics</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Home</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Appliances</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Beauty</h5>
+        </a>
+      </div>
+      <div class="item-1">
+        <a href="">
+          <h5>Best sellers</h5>
+        </a>
+      </div>
+  
+      <div class="deliver">
+        <a href="">
+          <i class="fas fa-map-marker-alt"></i>
+          Deliver to <span>Rajesh</span> - <span>Ramadurg</span>
+          <span>591127</span>
+        </a>
+      </div>
+  
+      <div class="download">
+        <a href="">
+          <img
+          src="https://images-eu.ssl-images-amazon.com/images/G/31/IN-hq/2021/img/Mobile_Traffic_/XCM_Manual_1321458_1651511_IN_3781247_400x39_en_IN._CB655944656_.jpg""
+          alt="">
+        </a>
+      </div>
+    </div>
+    <div id="sider" class="sidebar">
+      <div class="user">
+       <img src="/templates/images/user.png" alt="">
+        <h1>Hello, User</h1>
+        <i onclick="closeNav()" class="fas fa-times"></i>
+      </div>
+      <ul>
+        <li class="side-item"><a href="">
+          Home</a>
+        </li>
+        <li class="side-item"><a href="">
+          About</a>
+        </li>
+        <li class="side-item"><a href="">
+          Today's Deal</a>
+        </li>
+        <li class="side-item"><a href="">
+          Your Orders</a>
+        </li>
+        <li class="side-item"><a href="">
+          Your Cart</a>
+        </li>
+        <li class="side-item"><a href="">
+          Your Account</a>
+        </li>
+       </ul>
+
+  </div>
+    <div class="search-main">
+      <div class="search-1"></div>
+      <div class="search-2">
+        {% for i in allProduct %}
+          <div class="Bar">
+              <div class="Bar-1">
+                <a href="/selected_product/{{i.id}}">  <img src="/{{i.image}}" alt=""></a>
+               </div>
+               <div class="Bar-2">
+                <a href="/selected_product/{{i.id}}">   <h1>{{i.prname}}</h1></a>
+                   <div class="rating">
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star"></i>
+                       <i class="fa fa-star-half-o"></i>
+                       <i class="fa fa-star-o"></i>
+                   </div>
+                   <span class="rupees">Rs.{{i.price}}</span>
+                   <h5>Save extra with No cost EMI</h5>
+                   <h5>Get it By <strong>Tommorrow</strong></h5>
+                   <h5>November 28</h5>
+                   <h5>FREE Delivery with Amazon</h5>
+               </div>
+          </div>
+          {%endfor%}
+         
+      </div>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    function openNav(){
+      let btn= document.getElementById("sider").style.width="19%"
+
+     }
+     function closeNav(){
+      let btn= document.getElementById("sider").style.width="0%"
+     }
+  </script>
+</html>

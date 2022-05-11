@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/templates/css/order_placed.css">
+    <style>
+      .review{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+
+    <title>Preparing Your Order</title>
+  </head>
+  <body>
+    <div class="review"><h1>My Orders....</h1> <a href="/">Back to Home</a>
+    </div>
+    {% for i in order %}
+    <div class="ship_address">
+        <div class="product_image">
+            <h2>Delivery Today</h2>  
+         <a href="/selected_product/{{i.product.id}}">   <img src="/{{i.product.image}}" alt=""></a>
+        </div>
+        <div class="shipping_address">
+            <h3><span>{{i.product.prname| truncatechars:40}}</span> <span> {{i.product.size}} |6 Months Free Screen</span></h3>
+            <p>  <span>Qty :</span> <span>1</span></p>
+            <p>Total Price</p>
+            <p style="color: red;">Rs.{{i.product.price}}</p> 
+        </div> 
+        <div class="shipping_address">
+          <h3>Shipping Address</h3>
+          <p>{{i.Customer.name}}</p>
+          <p>{{i.Customer.village}}</p>
+          <p>{{i.Customer.town}}<span>{{i.Customer.state}}</span></p> 
+          <p>{{i.Customer.village}}-<span>{{i.Customer.pin}}</span></p>
+          <p>India</p> 
+          <p>Mobile No - <span>{{i.Customer.mobile}}</span></p>
+        </div>
+        <div class="pay">
+          <h3>Payment Method</h3>
+          <p>Pay on Delivey (Cash/Card)</p>
+        </div>
+        <div class="cancel_order">
+          <a href="/cancel_order/{{i.id}}">Cancel Order</a>
+        </div>
+    </div>
+    
+    {%endfor%}
+   
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    var a=document.getElementById('price1').innerHTML
+    document.getElementById('price2').innerHTML=a
+    document.getElementById('price3').innerHTML=a
+
+  </script>
+</html>

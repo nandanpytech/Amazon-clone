@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/templates/css/selected_product.css">
+
+    <title>Amazon.in</title>
+  </head>
+  <body>
+    <div class="header">
+        <div class="bar">
+          <span><i class="fas fa-bars"></i></span>
+        </div>
+        <div class="nav-1">
+          <a href=""> <strong>amazon</strong> <span>.in</span> </a>
+        </div>
+        <div class="nav-2">
+          <a href="/address/">
+              
+          
+          {%for i in default_address%}
+          <h5>Hello, {{i.name}}</h5>
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>{{i.village}}- {{i.pin}}</strong>
+          {%empty%}
+          <h5>Hello, Welcome</h5>
+          <i class="fas fa-map-marker-alt"></i>
+          <strong>Select Your address</strong>
+         
+          {%endfor%}
+          </a>
+        </div>
+        <div class="nav-3">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              All
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+          <form action="/search-hole/" method="get"> {% csrf_token%}
+            <input type="text" name="search" id="" required />
+            <button type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="india">
+          <div class="dropdown indian">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton2"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="background-color: #131921"
+            >
+              <img
+                src="https://cdn.dribbble.com/users/3583567/screenshots/6494624/india-flag-01_2x.png"
+                alt=""
+              />
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="nandan" class="nav-4">
+          <a href="">
+          {% if user.is_authenticated%}
+            <h5 style="margin: 6% 0 0 1%;">Welcome</h5>
+            <strong id="user">{{user.username}}</strong>
+          {% else %}
+          <h5>Hello,sign in</h5>
+          <strong>Account & List <i class="fas fa-caret-down"></i></strong>
+          {%endif%}
+          </a>
+        </div>
+        <div class="nav-5">
+          <a href="">
+            <h5>Return</h5>
+            <strong>& Orders</strong>
+          </a>
+        </div>
+        <div class="nav-6">
+          <a href="">
+            <h5>0</h5>
+            <i class="fas fa-shopping-cart"></i>
+            <strong>Cart</strong>
+          </a>
+        </div>
+      </div>
+      <div class="header-2">
+        <div class="item-1">
+          <a href="">
+            <h5>All</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Mobiles</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Grocery</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Electronics</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Home</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Appliances</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Beauty</h5>
+          </a>
+        </div>
+        <div class="item-1">
+          <a href="">
+            <h5>Best sellers</h5>
+          </a>
+        </div>
+    
+        <div class="deliver">
+          <a href="">
+            <i class="fas fa-map-marker-alt"></i>
+            Deliver to <span>Rajesh</span> - <span>Ramadurg</span>
+            <span>591127</span>
+          </a>
+        </div>
+    
+        <div class="download">
+          <a href="">
+            <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IN-hq/2021/img/Mobile_Traffic_/XCM_Manual_1321458_1651511_IN_3781247_400x39_en_IN._CB655944656_.jpg""
+            alt="">
+          </a>
+        </div>
+      </div>
+      <div id="sider" class="sidebar">
+        <div class="user">
+         <img src="/templates/images/user.png" alt="">
+          <h1>Hello, User</h1>
+          <i onclick="closeNav()" class="fas fa-times"></i>
+        </div>
+        <ul>
+          <li class="side-item"><a href="">
+            Home</a>
+          </li>
+          <li class="side-item"><a href="">
+            About</a>
+          </li>
+          <li class="side-item"><a href="">
+            Today's Deal</a>
+          </li>
+          <li class="side-item"><a href="">
+            Your Orders</a>
+          </li>
+          <li class="side-item"><a href="">
+            Your Cart</a>
+          </li>
+          <li class="side-item"><a href="">
+            Your Account</a>
+          </li>
+         </ul>
+  
+    </div>
+   <div class="selected_bar">
+     {%for i in product%}
+       <div class="selected_img">
+        <img src="/{{i.image}}" alt="">
+       </div>
+       <div class="selected_desc">
+        <h1>{{i.prname}}</h1>
+        <span style="font-size: 1rem;">Price :</span> <span style="color: #B12704;
+                     font-size: 1.5rem;
+                     font-weight:bold">Rs.{{i.price}}</span>
+        <p>Specification</p>             
+       <div> <span class="h5">Size Name:</span><strong style="margin-left: 3%;">{{i.size}}</strong>  </div>          
+       <div> <span class="h5">Model Name:</span><strong style="margin-left: 3%;">{{i.model}}</strong>   </div>         
+       <div> <span class="h5">Brand Name:</span><strong style="margin-left: 3%;">{{i.brand}}</strong>   </div>         
+       <div> <span class="h5">Storage Cap:</span><strong style="margin-left: 3%;">{{i.storage}}</strong>   </div>         
+       <div> <span class="h5">Mobile Color:</span><strong style="margin-left: 3%;">Black</strong></div>   
+       <div class="about-item">
+           <h5>About This Item</h5>
+           <ul>
+               <li> {{i.desc}}</li>
+               <li>{{i.specify}}</li>
+               <li>{{i.info}} </li>
+           </ul>
+       </div>   
+       <div class="product-button">
+        <div class="buy-button">
+           <a href="/buy/{{i.id}}">   <button type="button" class="btn btn-warning">Buy</button></a>
+        </div>
+        <div class="cart-button">
+              <a href="/cart/{{i.id}}"> <button type="button" class="btn btn-warning">Add to cart</button></a>
+        </div>
+      </div>  
+   
+       </div> 
+       {% endfor %}
+     
+    
+   </div>
+   
+   
+   <div class="footer">
+    <div class="footer1">
+        <div class="r1">
+            <b>Get to Know Us</b>
+            <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Press Releases</a></li>
+                <li><a href="">Amazon Cares</a></li>
+                <li><a href="">Gift a Smile</a></li>
+            </ul>
+        </div>
+        <div class="footer2">
+            <div class="r2"><b>Connect with Us</b>
+                <ul>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer3">
+            <div class="r3"><b>Make Money with Us</b>
+                <ul>
+                    <li><a href="">Sell on Amazon</a></li>
+                    <li><a href="">Sell under Amazon Accelerator </a></li>
+                    <li><a href="">Amazon Global Selling</a></li>
+                    <li><a href="">Become an Affiliate</a></li>
+                    <li><a href="">Fulfilment by Amazon</a></li>
+                    <li><a href="">Advertise Your Products</a></li>
+                    <li><a href="">Amazon Pay on Merchants</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer4">
+            <div class="r4"><b> Let Us Help You</b>
+                <ul>
+                    <li><a href="">COVID-19 and Amazon</a></li>
+                    <li><a href="">Your Account </a></li>
+                    <li><a href="">Returns Centre</a></li>
+                    <li><a href="">100% Purchase Protection</a></li>
+                    <li><a href="">Amazon App Download</a></li>
+                    <li><a href="">Amazon Assistant Download</a></li>
+                    <li><a href="">Help</a></li>
+                </ul>
+            </div>
+        </div>
+        
+       
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    function openNav(){
+      let btn= document.getElementById("sider").style.width="19%"
+
+     }
+     function closeNav(){
+      let btn= document.getElementById("sider").style.width="0%"
+     }
+  </script>
+</html>
