@@ -50,21 +50,22 @@
         <span><i class="fas fa-bars"></i></span>
       </div>
       <div class="nav-1">
-        <a href=""> <strong>amazon</strong> <span>.in</span> </a>
+        <a href=""> <strong>amazon</strong> </a>
       </div>
       <div class="nav-2">
         <a href="/address/">
             
          
-          {%for i in default_address%}
+          {%for i in default%}
           <h5>Hello, {{i.name}}</h5>
           <i class="fas fa-map-marker-alt"></i>
           <strong>{{i.village}}- {{i.pin}}</strong>
           {%empty%}
           <h5>Hello, Welcome</h5>
-          <i class="fas fa-map-marker-alt"></i>
+          <span>
+            <i class="fas fa-map-marker-alt"></i>
           <strong>Select Your address</strong>
-         
+          </span>
           {%endfor%}
         </a>
       </div>
@@ -190,7 +191,7 @@
       <div class="download">
         <a href="">
           <img
-          src="https://images-eu.ssl-images-amazon.com/images/G/31/IN-hq/2021/img/Mobile_Traffic_/XCM_Manual_1321458_1651511_IN_3781247_400x39_en_IN._CB655944656_.jpg""
+          src="https://images-eu.ssl-images-amazon.com/images/G/31/IN-hq/2021/img/Mobile_Traffic_/XCM_Manual_1321458_1651511_IN_3781247_400x39_en_IN._CB655944656_.jpg"
           alt="">
         </a>
       </div>

@@ -1,3 +1,5 @@
+from email.policy import default
+from unicodedata import name
 from django.http.response import HttpResponse
 from .forms import CustomerRegistration,CustomerLogin,CustomerAddress
 from django.shortcuts import redirect, render
@@ -5,17 +7,17 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from .models import Product,User,Customer,Cart,Orderplaced
 # Create your views here.
+
 def home(request):
-    default_address=Customer.objects.filter(default=True)
-    print(not(default_address))
-    return render  (request,"html/Home.html",{"default_address":default_address})
+    # default_address=Customer.objects.filter(id=id)
+    return render  (request,"html/Home.html")
 
 def search_hole(request):
     query=request.GET['search']
     if len(query)>20:
         allProduct=Product.objects.none
     else:    
-        listname=Product.objects.filter(prname__icontains=query)
+        listname=Product.objects.filter(prname__icontains=query)                      #to check exact same item which typed in input box
         allProduct=listname
     default_address=Customer.objects.filter(default=True)
     params={'allProduct':allProduct,'query':query,'default_address':default_address}
@@ -66,12 +68,15 @@ def logoutformat(request):
 
 @login_required(login_url='/sign-in/')
 def buy(request,id):
-    address=Customer.objects.filter(default=True)
-    Customer_name=Customer.objects.get(default=True)
-    product=Product.objects.filter(id=id)
-    product_name=Product.objects.get(id=id)
-    buy_item=Orderplaced.objects.create(User=request.user,product=product_name,Customer=Customer_name,quantity=1)
-    buy_item.save()
+    User=request.user
+    address=Customer.objects.filter(User=User)
+    Customer_name=Customer.objects.get(User=User)
+    print(Customer_name)
+    product=Product.objects.get(id=id)
+    print(product)
+    # product_name=Product.objects.get(id=id)
+    # buy_item=Orderplaced.objects.create(User=request.user,Customer=Customer_name,product=product,quantity=1)
+    # buy_item.save()
     params={'address':address,"product":product}
     return render(request,"html/buy.html",params)       
 
@@ -86,10 +91,11 @@ def cart(request,id):
     return render(request,"html/cart.html",params)    
 
 def address(request):
-    alladdress=Customer.objects.all()
-    default_address=Customer.objects.filter(default=True)
-    print(len(default_address)==0)
-    para={'alladdress':alladdress,"default_address":default_address}
+    User=request.user
+    alladdress=Customer.objects.filter(name__icontains=User)
+    # default_address=Customer.objects.filter(default=True)
+    # print(len(default_address)==0)
+    para={'alladdress':alladdress}
     return render(request,"html/address.html",para)     
 
 def address_form(request):
@@ -110,11 +116,17 @@ def address_form(request):
     else:        
         fm=CustomerAddress()
         return render(request,"html/address-form.html",{"form":fm})
-            
+
 def set_default(request,id):
-    Customer.objects.all().update(default=False)
-    Customer.objects.filter(id=id).update(default=True) 
-    return redirect('/address/')
+    # Customer.objects.all().update(default=False)
+    # Customer.objects.filter(id=id).update(default=True) 
+    # return redirect('/address/')
+    User=request.user
+    alladdress=Customer.objects.filter(name__icontains=User)
+    print(alladdress)
+    default_address=Customer.objects.filter(id=id)
+    para={'alladdress':alladdress,'default':default_address}
+    return render(request,"html/home.html",para)  
 
 def remove_address(reques,id):
     Customer.objects.filter(id=id).delete()
@@ -132,15 +144,21 @@ def remove_cart(request,id):
 
 
 def order_placed(request):
-    order=Orderplaced.objects.all()
+    order=Orderplaced.objects.filter(User=request.user)
+    print(order)
     return render(request,'html/order_placed.html',{'order':order})
 
 def place_order(request,id):
-    Customer_name=Customer.objects.get(default=True)
+    Customer_name=Customer.objects.get(User=request.user)
     product_name=Product.objects.get(id=id)
-    buy_item=Orderplaced.objects.create(User=request.user,product=product_name,Customer=Customer_name,quantity=1)
+
+    buy_item=Orderplaced.objects.create(User=request.user,Customer=Customer_name,product=product_name,quantity=1)
+    print(buy_item)
     buy_item.save()
-    return redirect('/order_placed/')           
+    # return redirect('/order_placed/')        
+    order=Orderplaced.objects.filter(User=request.user)
+    print(order)
+    return render(request,'html/order_placed.html',{'order':order})   
 
 def cancel_order(request,id):
     Orderplaced.objects.filter(id=id).delete()

@@ -1,6 +1,5 @@
-from django.urls import path
 from . import views
-
+from django.urls import path
 urlpatterns = [
     path("",views.home,name="home"),
     path("search-hole/",views.search_hole,name="search-hole"),
@@ -12,7 +11,7 @@ urlpatterns = [
     path("cart/<int:id>",views.cart,name="cart"),
     path("address/",views.address,name="address"),
     path("address-form/",views.address_form,name="address-form"),
-    path("set-default/<int:id>",views.set_default,name="set_default"),
+    path("set_default/<int:id>",views.set_default,name="set_default"),
     path("remove/<int:id>",views.remove_address,name="remove_address"),
     path('remove_cart/<int:id>',views.remove_cart,name="remove_cart"),
     path('show_cart/',views.show_cart,name="showcart"),

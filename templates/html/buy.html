@@ -30,35 +30,35 @@
      </div>
     </div>
     {%endfor%}
-    {%for i in product%}
+    
     <div class="selected_product">
         <h3>Delivery Today</h3>
         <div class="product_image">
-          <img src="/{{i.image}}" alt="">
+          <img src="/{{product.image}}" alt="">
         </div>
-        <div class="product_name"><span>{{i.prname}}</span>
-        <span> {{i.size}} | FHD+ sAMOLED | 6 Months Free Screen</span></div>
+        <div class="product_name"><span>{{product.prname}}</span>
+        <span> {{product.size}} | FHD+ sAMOLED | 6 Months Free Screen</span></div>
         <div class="qty">
           <span>Qty :</span> <span>1</span>
         </div>
         <div class="price">
           <span><h4>Total Price</h4></span>
-          <span id="price1">Rs.{{i.price}}</span>
+          <span id="price1">Rs.{{product.price}}</span>
         </div>
     </div>
-    {%endfor%}
-    {% for i in product %}
+  
+    
     <div class="order-placed">
-      <a href="/placeorder/{{i.id}}">
+      <a href="/placeorder/{{product.id}}">
         <button type="button" class="btn btn-warning">Place Your Order</button>
       </a>
       <h4>Order Summary</h4>
       <p><span>Items :</span> <span id="price2">1</span></p>
       <p><span>Delivery :</span> <span>Rs.40</span></p>
       <p><span>Promotion Applied :</span> <span>Rs.-40</span></p> <hr>
-      <h5><span>Order Total :</span> <span id="price3">{{i.price}}</span></h5>
+      <h5><span>Order Total :</span> <span id="price3">{{product.price}}</span></h5>
     </div>
-    {%endfor%}
+ 
 
 
 
